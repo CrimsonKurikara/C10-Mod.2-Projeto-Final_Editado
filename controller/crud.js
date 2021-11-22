@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const filmes = require('.././model/filme');
+const filmes = require('.././BD_Proj/filme');
 
 let mensagem = ""
 
