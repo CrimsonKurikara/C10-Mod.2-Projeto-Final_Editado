@@ -1,0 +1,26 @@
+{
+  "name": "c10-mod.2-projeto-final_editado",
+  "version": "1.0.0",
+  "description": "Projeto final para o Módulo02 - Turma C010 - BlueEdtech.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreSilvestre21/C10-Mod.2-Projeto-Final_Editado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexandreSilvestre21/C10-Mod.2-Projeto-Final_Editado/issues"
+  },
+  "homepage": "https://github.com/AlexandreSilvestre21/C10-Mod.2-Projeto-Final_Editado#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
