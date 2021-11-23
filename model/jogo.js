@@ -37,3 +37,4 @@ const jogo = database.sequelize.define("jogos", {
 });
 
 module.exports = jogo;
+
