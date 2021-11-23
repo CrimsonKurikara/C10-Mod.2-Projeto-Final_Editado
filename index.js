@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config()
 const crud = require("./controller/crud")
 
-const porta = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const db = require('./model/database')
 const jogos = require('./model/jogo');
 
