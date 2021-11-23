@@ -25,7 +25,7 @@
             <div class="inputC">
                 <p class="question">Nome</p>
                 <label for="nome"></label class="labelinput">
-                <input type="text" name="nome" id="input_nome" required value = "<%=filme.nome%>">
+                <input type="text" name="nome" id="input_nome" required value = "<%=jogo.nome%>">
             </div>
             <br>
             <div class="inputC">
@@ -33,7 +33,7 @@
 
                 <select id="gen" name="genero">
                     <%
-                    var options = [ "Aventura", "Ação", "FPS", "Card Game", "MMO", "MOBA","Hack n' Slash", "RPG", "RTS", "Simulador", "Corrida"];
+                    var options = [ "Ação", "FPS", "Card Game", "MOBA", "RPG", " "Simulador", "Corrida"];
                         for ( var i = 0; i < options.length; i++ ){
                             if (filme.genero===options[i]) { %>
                                 <option value="<%=options[ i ] %>" selected><%=options[i] %></option>
@@ -48,24 +48,24 @@
                 <div class="inputC">
                     <p class="question">Imagem Url</p>
                     <label for="image"></label class="labelinput">
-                    <input type="url" name="image" id="input_image" required value="<%=filme.imagem%>">
+                    <input type="url" name="image" id="input_image" required value="<%=jogo.imagem%>">
                 </div>
 
                 <div>
                 <p><b>Imagem utilizada </b></p>
-                <img src="<%=filme.imagem%>" height="300" width="250" class="img-file" alt="<% filme.nome %>">
+                <img src="<%=jogo.imagem%>" height="300" width="250" class="img-file" alt="<% jogo.nome %>">
                 </div>
                 <br>
                 <div class="inputC">
-                    <p class="question">Nome do diretor</p>
-                    <label for="diretor"></label class="labelinput">
-                    <input type="text" name="diretor" id="input_diretor" required value = "<%=filme.diretor%>">
+                    <p class="question">Descrição</p>
+                    <label for="descritivo"></label class="labelinput">
+                    <input type="text" name="diretor" id="input_diretor" required value = "<%=jogo.descritivo%>">
                 </div>           
                 <br>
                 <div class="inputC">
                     <p class="question">Ano de lancamento</p>
                     <label for="diretor"></label>
-                    <input type="integer" name="ano" id="input_ano" required value = "<%=filme.ano%>">
+                    <input type="integer" name="ano" id="input_ano" required value = "<%=jogo.ano%>">
                 </div>
                 <br>
                 <button class="botao" type="submit">Editar</button>

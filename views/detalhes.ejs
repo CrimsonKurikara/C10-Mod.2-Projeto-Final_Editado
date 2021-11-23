@@ -24,21 +24,21 @@
        
  <p class = "titulo">Nome</p>
 
-<%= filme.nome %>
+<%= jogo.nome %>
 
-<img src="<%=filme.imagem%>" alt="Jogo" class="imag" height="300" width="250" class="img-file" alt="<% filme.nome %>">
+<img src="<%=jogo.imagem%>" alt="Jogo" class="imag" height="300" width="250" class="img-file" alt="<% filme.nome %>">
 
 <p class = "titulo">Genero</p>
  
- <%= filme.genero %>
+ <%= jogo.genero %>
 
  <p class = "titulo">Descrição</p>
  
-<%= filme.diretor %>
+<%= jogo.diretor %>
 
 <p class = "titulo">Ano</p>
 
- <%= filme.ano %>
+ <%= jogo.ano %>
 
  <br>
  <br>
@@ -46,8 +46,8 @@
   </header>
 
     <div id = "center">
-          <a href="/editar/<%=filme.id%>" class = "botao"><button>Editar</button></a>
-          <a href="/deletar/<%=filme.id%>" class = "botao"><button>Excluir</button></a>
+          <a href="/editar/<%=jogo.id%>" class = "botao"><button>Editar</button></a>
+          <a href="/deletar/<%=jogo.id%>" class = "botao"><button>Excluir</button></a>
     </div>
     <br>
     <br>
