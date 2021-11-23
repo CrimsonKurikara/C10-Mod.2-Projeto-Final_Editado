@@ -1,7 +1,7 @@
 const Sequelize  = require('sequelize');
 const database = require("./database");
 
-const Filme = database.sequelize.define("filmes", {
+const jogo = database.sequelize.define("jogos", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -20,11 +20,11 @@ const Filme = database.sequelize.define("filmes", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  diretor: {
+  descritivo: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  ano: {
+  data: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
@@ -36,4 +36,4 @@ const Filme = database.sequelize.define("filmes", {
   updatedAt: false,
 });
 
-module.exports = Filme;
+module.exports = jogo;

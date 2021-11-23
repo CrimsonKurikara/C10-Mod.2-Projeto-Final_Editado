@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const filmes = require('.././BD_Proj/filme');
+const filmes = require('.././BD_Proj/jogos');
 
 let mensagem = ""
 
 router.get("/",  async (req, res) => {
-  const filme = await filmes.findAll();
+  const jogo = await jogos.findAll();
     setTimeout(() => { mensagem = "";}, 5000);
-  res.render("../views/index", {mensagem,filme});
+  res.render("../views/index", {mensagem,jogo});
 });
 
 // cadastro
@@ -20,13 +20,13 @@ router.get("/cadastro", (req, res) => {
 
 router.post("/New", async (req, res) => {
 
-  const {nome,genero,image,diretor,ano} = req.body;
-  const filme = await filmes.create({
+  const {nome,genero,imagem,descritivo,data} = req.body;
+  const jogo = await jogos.create({
     nome:nome,
     genero:genero,
     imagem:image,
-    diretor:diretor,
-    ano:ano,
+    descritivo:descritivo,
+    data:data,
   })
   if (!nome){
 res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
@@ -36,85 +36,85 @@ res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
   }else if  (!image) 
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
-  }else if  (!diretor) 
+  }else if  (!descritivo) 
   {
-res.redirect("/cadastro" ,{mensagem: "tabela de diretor esta vazia"})
-  }else if  (!ano) 
+res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
+  }else if  (!data) 
   {
-res.redirect("/cadastro" ,{mensagem: "tabela de ano esta vazia"})
+res.redirect("/cadastro" ,{mensagem: "tabela de data esta vazia"})
   };
-  mensagem = `O Filme ${nome} foi adicionado`
-res.redirect("/"),filme})
+  mensagem = `O Jogo ${nome} foi adicionado`
+res.redirect("/"),jogo})
  
 //render detalhe
 
 router.get("/detalhes/:id", async function (req, res){
   const filme = await filmes.findByPk(req.params.id);
-  res.render("../views/detalhes",{filme:filme})
+  res.render("../views/detalhes",{jogo:jogo})
 
 });
 
 // deletar do render
 
 router.get("/deletar/:id", async (req, res) => {
-  const filme = await filmes.findByPk(req.params.id);
+  const jogo = await jogos.findByPk(req.params.id);
 
-  if (!filme) {
+  if (!jogo) {
     res.render("../views/deletar", {
-      mensagem: "Filme não encontrado!",
+      mensagem: "Jogo não encontrado!",
     });
   }
 
   res.render("../views/deletar", {
-    filme,
+    jogo,
   });
 });
 
 // render delete
 
 router.post('/deletar/deletar/:id', async (req,res) => {
-  const filme = await filmes.findByPk(req.params.id);
+  const jogo = await jogos.findByPk(req.params.id);
 
-  if (!filme) {    
-    res.render("../views/deletar",  {mensagem: "Filme não encontrado!",});};
+  if (!jogo) {    
+    res.render("../views/deletar",  {mensagem: "Jogo não encontrado!",});};
 
-  await filme.destroy();
-  const filmesList = await filmes.findAll();
-  res.render("../views/index", {mensagem: `Filme deletado com sucesso!`,  filme:filmesList});
+  await jogo.destroy();
+  const jogosList = await jogos.findAll();
+  res.render("../views/index", {mensagem: `Jogo deletado com sucesso!`,  jogo:jogosList});
 });
 
 
 // editar do render
 
 router.get('/editar/:id', async (req,res) => {
-  const filme = await filmes.findByPk(req.params.id);
+  const jogo = await jogos.findByPk(req.params.id);
 
   var options = [ 
-    "Animação", "Comédia", "Comédia Romântica", "Comédia Dramática", "Documentário", "Drama","Faroeste", "Ficção Científica", "Musical", "Suspense", "Terror / Horror"];
+    "Ação", "FPS", "Card Game", "RPG", "MOBA", "Drama","Simulador", "Corrida"];
   for ( var i = 0; i < options.length; i++ )
   {
-      var selected = (filme.genero == i ) ? "selected" : "";
+      var selected = (jogo.genero == i ) ? "selected" : "";
   }
 
-  res.render("../views/editar", {filme:filme});
+  res.render("../views/editar", {jogo:jogo});
 });
 
 
 // editar no render 
 
 router.post("/editar/:id", async function (req,res){
-    const filme = await filmes.findByPk(req.params.id);
-    const { nome, genero, image, diretor, ano} = req.body;
+    const jogo = await jogos.findByPk(req.params.id);
+    const { nome, genero, image, descritivo, data} = req.body;
     
-    filme.id = req.params.id;
-    filme.nome = nome;
-    filme.genero = genero;
-    filme.imagem = image;
-    filme.diretor = diretor;
-    filme.ano = ano;
-      if (!filme) {
+    jogo.id = req.params.id;
+    jogo.nome = nome;
+    jogo.genero = genero;
+    jogo.imagem = image;
+    jogo.descritivo = descritivo;
+    jogo.data = data;
+      if (!jogo) {
     res.render("../views/deletar", {
-      mensagem: "Filme não encontrado!",
+      mensagem: "Jogo não encontrado!",
     });
   }
     if (!nome){
@@ -125,18 +125,18 @@ res.redirect("/editar" ,{mensagem: "tabela genero esta vazia"})
   }else if  (!image) 
   {
 res.redirect("/editar" ,{mensagem: "tabela de imagem esta vazia"})
-  }else if  (!diretor) 
+  }else if  (!descritivo) 
   {
-res.redirect("/editar" ,{mensagem: "tabela de diretor esta vazia"})
-  }else if  (!ano) 
+res.redirect("/editar" ,{mensagem: "tabela de descritivo esta vazia"})
+  }else if  (!data) 
   {
-res.redirect("/editar" ,{mensagem: "tabela de ano esta vazia"})
+res.redirect("/editar" ,{mensagem: "tabela de data esta vazia"})
   };
 
-    mensagem = `O Filme ${nome} foi alterado com sucesso!`
+    mensagem = `O Jogo ${nome} foi alterado com sucesso!`
   
-    await filme.save();
-    res.render("../views/editar",{filme,mensagem});
+    await jogo.save();
+    res.render("../views/editar",{jogo,mensagem});
 });
 
 

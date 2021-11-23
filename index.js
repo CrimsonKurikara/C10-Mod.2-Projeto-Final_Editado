@@ -6,7 +6,7 @@ const crud = require("./controller/crud")
 
 const porta = process.env.PORT || 3000;
 const db = require('./model/database')
-const filmes = require('./model/filme');
+const jogos = require('./model/jogo');
 
 
 app.set("view engine", "ejs");
