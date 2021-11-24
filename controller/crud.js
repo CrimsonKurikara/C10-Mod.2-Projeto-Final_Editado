@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Jogos = require('../model/jogo');
+const Jogos = require('./model/jogo');
 const port = process.env.PORT || 3000;
 
 let mensagem = ""
@@ -8,7 +8,7 @@ let mensagem = ""
 router.get("/",  async (req, res) => {
   const jogos = await Jogos.findAll();
     setTimeout(() => { mensagem = "";}, 5000);
-  res.render("index", {mensagem,jogos});
+  res.render("index", {mensagem, jogos});
 });
 
 // cadastro
