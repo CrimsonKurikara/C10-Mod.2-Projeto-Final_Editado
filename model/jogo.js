@@ -24,10 +24,6 @@ const jogo = database.sequelize.define("jogos", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  data: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
 },
 {
   freezeTableName: true,

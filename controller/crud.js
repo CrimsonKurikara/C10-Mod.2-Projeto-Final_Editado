@@ -20,7 +20,7 @@ router.get("/cadastro", (req, res) => {
 
 router.post("/New", async (req, res) => {
 
-  const {nome,genero,imagem,descritivo,data} = req.body;
+  const {nome,genero,imagem,descritivo} = req.body;
   const jogo = await jogos.create({
     nome:nome,
     genero:genero,
@@ -29,13 +29,13 @@ router.post("/New", async (req, res) => {
     })
   if (!nome){
 res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
-  }else if  (!genero)
+  }else if  (!nome)
   {
 res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
-  }else if  (!image) 
+  }else if  (!genero) 
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
-  }else if  (!descritivo) 
+  }else if  (!image) 
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
   };
