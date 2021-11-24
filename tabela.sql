@@ -7,3 +7,6 @@ CREATE TABLE jogos
     descritivo bigint NOT NULL,
     PRIMARY KEY(id)
 )
+
+INSERT INTO jogos (nome, genero, imagem, descritivo) VALUES
+	('Beyond Two Souls', 'Ação', 'https://cdn1.epicgames.com/lavender/offer/BEYOND_1-2560x1440-78243e22ac01cc0262fcd84df9af6f18', 'asd')
