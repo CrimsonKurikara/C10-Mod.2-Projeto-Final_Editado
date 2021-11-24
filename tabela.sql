@@ -3,6 +3,7 @@ CREATE TABLE jogos
     nome character varying NOT NULL,
     genero character varying NOT NULL,
     imagem character varying NOT NULL,
-    id_jogos character varying NOT NULL,
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     descritivo bigint NOT NULL,
+    PRIMARY KEY(id)
 )
