@@ -41,7 +41,7 @@ res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
 res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
   };
   mensagem = `O Jogo ${nome} foi adicionado`
-res.redirect("/"),jogo})
+res.redirect("/")})
  
 //render detalhe
 
