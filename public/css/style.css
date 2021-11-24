@@ -92,8 +92,12 @@ section#message {
   }
   
   #fundo {
-    background-image: url("../IMG/cubo.png");
-    background-position: center;
+    background-image: linear-gradient(to bottom, #020a17, #0c1421, #111c2b, #172336, #1c2b41, #1c2b40, #1b2b40, #1b2b3f, #162332, #111b26, #0a131a, #00060d);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0;
   }
   
   .imag {
