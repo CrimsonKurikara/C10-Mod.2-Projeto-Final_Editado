@@ -46,7 +46,7 @@ res.redirect("/"),jogo})
 //render detalhe
 
 router.get("/detalhes/:id", async function (req, res){
-  const filme = await Jogos.findByPk(req.params.id);
+  const jogo = await Jogos.findByPk(req.params.id);
   res.render("detalhes",{jogo:jogo})
 
 });
