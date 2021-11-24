@@ -4,6 +4,5 @@ CREATE TABLE filmes
     genero character varying NOT NULL,
     imagem character varying NOT NULL,
     id_jogos character varying NOT NULL,
-    data character varying NOT NULL,,
-    descritivo bigint NOT NULL
+    descritivo bigint NOT NULL,
 )
