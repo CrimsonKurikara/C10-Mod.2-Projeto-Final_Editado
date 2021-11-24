@@ -22,7 +22,7 @@ router.get("/cadastro", (req, res) => {
 router.post("/cadastro", async (req, res) => {
 
   const {nome,genero,imagem,descritivo} = req.body;
-  const jogo = await Jogos.create({
+  await Jogos.create({
     nome:nome,
     genero:genero,
     imagem:imagem,
