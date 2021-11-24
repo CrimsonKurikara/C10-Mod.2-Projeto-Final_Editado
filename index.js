@@ -17,4 +17,4 @@ app.use(express.urlencoded({ extended: true }))
 app.use("/", crud);
 
 db.conectado();
-app.listen(porta, () =>console.log(`Servidor rodando em http://localhost:${porta}`));
+app.listen(port, () =>console.log(`Servidor rodando em http://localhost:${port}`));

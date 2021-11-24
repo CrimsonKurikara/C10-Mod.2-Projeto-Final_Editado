@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const jogos = require('../model/jogo');
+const Jogos = require('../model/jogo');
+const port = process.env.PORT || 3000;
 
 let mensagem = ""
 
 router.get("/",  async (req, res) => {
-  const jogo = await jogos.findAll();
+  const jogos = await Jogos.findAll();
     setTimeout(() => { mensagem = "";}, 5000);
-  res.render("index", {mensagem,jogo});
+  res.render("index", {mensagem,jogos});
 });
 
 // cadastro
@@ -21,7 +22,7 @@ router.get("/cadastro", (req, res) => {
 router.post("/New", async (req, res) => {
 
   const {nome,genero,imagem,descritivo} = req.body;
-  const jogo = await jogos.create({
+  const jogo = await Jogos.create({
     nome:nome,
     genero:genero,
     imagem:imagem,
@@ -45,7 +46,7 @@ res.redirect("/"),jogo})
 //render detalhe
 
 router.get("/detalhes/:id", async function (req, res){
-  const filme = await jogos.findByPk(req.params.id);
+  const filme = await Jogos.findByPk(req.params.id);
   res.render("detalhes",{jogo:jogo})
 
 });
@@ -53,7 +54,7 @@ router.get("/detalhes/:id", async function (req, res){
 // deletar do render
 
 router.get("/deletar/:id", async (req, res) => {
-  const jogo = await jogos.findByPk(req.params.id);
+  const jogo = await Jogos.findByPk(req.params.id);
 
   if (!jogo) {
     res.render("deletar", {
@@ -69,13 +70,13 @@ router.get("/deletar/:id", async (req, res) => {
 // render delete
 
 router.post('/deletar/deletar/:id', async (req,res) => {
-  const jogo = await jogos.findByPk(req.params.id);
+  const jogo = await Jogos.findByPk(req.params.id);
 
   if (!jogo) {    
     res.render("deletar",  {mensagem: "Jogo não encontrado!",});};
 
   await jogo.destroy();
-  const jogosList = await jogos.findAll();
+  const jogosList = await Jogos.findAll();
   res.render("index", {mensagem: `Jogo deletado com sucesso!`,  jogo:jogosList});
 });
 
@@ -83,7 +84,7 @@ router.post('/deletar/deletar/:id', async (req,res) => {
 // editar do render
 
 router.get('/editar/:id', async (req,res) => {
-  const jogo = await jogos.findByPk(req.params.id);
+  const jogo = await Jogos.findByPk(req.params.id);
 
   var options = [ 
     "Ação", "FPS", "Card Game", "RPG", "MOBA","Simulador", "Corrida"];
@@ -99,7 +100,7 @@ router.get('/editar/:id', async (req,res) => {
 // editar no render 
 
 router.post("/editar/:id", async function (req,res){
-    const jogo = await jogos.findByPk(req.params.id);
+    const jogo = await Jogos.findByPk(req.params.id);
     const { nome, genero, imagem, descritivo} = req.body;
     
     jogo.id = req.params.id;
