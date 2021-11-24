@@ -1,4 +1,4 @@
-CREATE TABLE filmes
+CREATE TABLE jogos
 (
     nome character varying NOT NULL,
     genero character varying NOT NULL,

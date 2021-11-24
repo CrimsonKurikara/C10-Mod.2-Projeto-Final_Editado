@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const jogos = require('.././BD_Proj/jogos');
+const jogos = require('../model/jogo');
 
 let mensagem = ""
 
