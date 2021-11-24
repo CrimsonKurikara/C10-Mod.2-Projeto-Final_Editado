@@ -26,8 +26,7 @@ router.post("/New", async (req, res) => {
     genero:genero,
     imagem:image,
     descritivo:descritivo,
-    data:data,
-  })
+    })
   if (!nome){
 res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
   }else if  (!genero)
@@ -39,9 +38,6 @@ res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
   }else if  (!descritivo) 
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
-  }else if  (!data) 
-  {
-res.redirect("/cadastro" ,{mensagem: "tabela de data esta vazia"})
   };
   mensagem = `O Jogo ${nome} foi adicionado`
 res.redirect("/"),jogo})
@@ -111,7 +107,7 @@ router.post("/editar/:id", async function (req,res){
     jogo.genero = genero;
     jogo.imagem = image;
     jogo.descritivo = descritivo;
-    jogo.data = data;
+    
       if (!jogo) {
     res.render("../views/deletar", {
       mensagem: "Jogo não encontrado!",
@@ -128,9 +124,6 @@ res.redirect("/editar" ,{mensagem: "tabela de imagem esta vazia"})
   }else if  (!descritivo) 
   {
 res.redirect("/editar" ,{mensagem: "tabela de descritivo esta vazia"})
-  }else if  (!data) 
-  {
-res.redirect("/editar" ,{mensagem: "tabela de data esta vazia"})
   };
 
     mensagem = `O Jogo ${nome} foi alterado com sucesso!`
