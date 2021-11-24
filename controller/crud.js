@@ -23,10 +23,10 @@ router.post("/cadastro", async (req, res) => {
 
   const {nome,genero,imagem,descritivo} = req.body;
   await Jogos.create({
-    nome:nome,
-    genero:genero,
-    imagem:imagem,
-    descritivo:descritivo,
+    nome,
+    genero,
+    imagem,
+    descritivo,
     });
   mensagem = `O Jogo ${nome} foi adicionado`
 res.redirect("/")})
