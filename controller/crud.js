@@ -100,12 +100,12 @@ router.get('/editar/:id', async (req,res) => {
 
 router.post("/editar/:id", async function (req,res){
     const jogo = await jogos.findByPk(req.params.id);
-    const { nome, genero, image, descritivo, data} = req.body;
+    const { nome, genero, imagem, descritivo} = req.body;
     
     jogo.id = req.params.id;
     jogo.nome = nome;
     jogo.genero = genero;
-    jogo.imagem = image;
+    jogo.imagem = imagem;
     jogo.descritivo = descritivo;
     
       if (!jogo) {
@@ -118,7 +118,7 @@ res.redirect("/editar" ,{mensagem: "tabela nome esta vazia"})
   }else if  (!genero)
   {
 res.redirect("/editar" ,{mensagem: "tabela genero esta vazia"})
-  }else if  (!image) 
+  }else if  (!imagem) 
   {
 res.redirect("/editar" ,{mensagem: "tabela de imagem esta vazia"})
   }else if  (!descritivo) 
