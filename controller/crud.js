@@ -28,18 +28,6 @@ router.post("/cadastro", async (req, res) => {
     imagem:imagem,
     descritivo:descritivo,
     })
-  if (!nome){
-res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
-  }else if  (!genero)
-  {
-res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
-  }else if  (!imagem) 
-  {
-res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
-  }else if  (!descritivo) 
-  {
-res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
-  };
   mensagem = `O Jogo ${nome} foi adicionado`
 res.redirect("/")})
  
