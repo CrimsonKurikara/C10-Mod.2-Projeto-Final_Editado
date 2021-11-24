@@ -24,7 +24,7 @@ router.post("/New", async (req, res) => {
   const jogo = await jogos.create({
     nome:nome,
     genero:genero,
-    imagem:image,
+    imagem:imagem,
     descritivo:descritivo,
     })
   if (!nome){
@@ -35,7 +35,7 @@ res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
   }else if  (!genero) 
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
-  }else if  (!image) 
+  }else if  (!imagem) 
   {
 res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
   };
