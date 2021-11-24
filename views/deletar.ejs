@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deletar</title>
-    <link rel="stylesheet" href="/../css/style5.css">
+    <link rel="stylesheet" href="./css/style5.css">
     <link rel="icon" href="/IMG/iconn.png">
 </head>
 <body id = "fundo">  
         <header class="header">
-            <a href="/"> <img src="../IMG/edita.gif" width="50" height="45" alt = "cubo gif"></a>
+            <a href="/"> <img src="./IMG/edita.gif" width="50" height="45" alt = "cubo gif"></a>
             <nav>
                 <ul class="menu">
                     <li><a href=/cadastro>Criar </a></li>
@@ -22,12 +22,11 @@
 
 <h1>Deseja mesmo deletar esse jogo?</h1>
 
-<form method="post" action="deletar/<%=jogo.id%>">
+<form method="post" action="deletar/<%=jogos.id%>">
 <button class="botao" type="submit" >Sim</button>
 
 </form>
  <button class="botao" onclick="window.location.href='/'">nao</button>
 </div>
-<script type="text/javascript" src="../js/script.js"></script>
 </body>
 </html>
