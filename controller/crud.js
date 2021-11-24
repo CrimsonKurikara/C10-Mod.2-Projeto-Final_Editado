@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const router = express()
 const Jogos = require('../model/jogo');
 const port = process.env.PORT || 3000;
 
@@ -21,13 +21,13 @@ router.get("/cadastro", (req, res) => {
 
 router.post("/cadastro", async (req, res) => {
 
-  const {nome,genero,imagem,descritivo} = req.body;
+  const {nome,genero,imagem,descritivo} = req.body
   await Jogos.create({
     nome,
     genero,
     imagem,
     descritivo,
-    });
+    })
   mensagem = `O Jogo ${nome} foi adicionado`
 res.redirect("/")})
  
