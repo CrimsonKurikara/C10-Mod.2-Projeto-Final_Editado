@@ -6,7 +6,8 @@ require('dotenv').config()
 let mensagem = ""
 
 const port = process.env.PORT || 3000;
-const db = require('./model/database')
+const db = require('./model/database');
+const jogo = require("./model/jogo");
 const Jogos = require('./model/jogo');
 
 
@@ -35,5 +36,13 @@ app.post('/cadastro', async(req, res) =>{
     res.redirect('/')
 })
 
+app.get('/detalhes/:id', async(req, res)=>{
+    let jogo = await Jogos.findByPk(req.params.id);
+    res.render('detalhes',{jogo})
+})
+
+app.get('/deletar:id', async(req, res) => {
+
+})
 db.conectado();
 app.listen(port, () =>console.log(`Servidor rodando em http://localhost:${port}`));
