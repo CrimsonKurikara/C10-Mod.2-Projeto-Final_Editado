@@ -22,26 +22,37 @@ router.get("/cadastro", (req, res) => {
 router.post("/cadastro", async (req, res) => {
 
   const {nome,genero,imagem,descritivo} = req.body;
-  const jogo = await Jogos.create({
-    nome:nome,
-    genero:genero,
-    imagem:imagem,
-    descritivo:descritivo,
-    })
   if (!nome){
-res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
+  res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
   }else if  (!genero)
   {
-res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
+  res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
   }else if  (!imagem) 
   {
-res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
+  res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
   }else if  (!descritivo) 
   {
-res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
-  };
-  mensagem = `O Jogo ${nome} foi adicionado`
-res.redirect("/"),jogo})
+  res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
+  }
+  else{
+    try {
+      const jogo = await Jogos.create({
+        nome:nome,
+        genero:genero,
+        imagem:imagem,
+        descritivo:descritivo,
+        });
+        
+        res.render("cadastro", {jogo, message: "Seu jogo foi cadastrado!",
+      });
+    } catch(err) {
+      console.log(err);
+
+      res.render("cadastro", {message: "Ocorreu um erro ao cadastrar o Jogo!",
+    });
+    }
+  }
+});
  
 //render detalhe
 
