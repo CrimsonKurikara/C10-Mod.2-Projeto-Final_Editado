@@ -11,7 +11,7 @@ const jogos = require('./model/jogo');
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }))
 
 // rota do crud
 app.use("/", crud);

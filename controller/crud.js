@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Jogos = require('./model/jogo');
+const Jogos = require('../model/jogo');
 const port = process.env.PORT || 3000;
 
 let mensagem = ""
@@ -8,7 +8,7 @@ let mensagem = ""
 router.get("/",  async (req, res) => {
   const jogos = await Jogos.findAll();
     setTimeout(() => { mensagem = "";}, 5000);
-  res.render("index", {mensagem, jogos});
+  res.render("index", {mensagem,jogos});
 });
 
 // cadastro
@@ -28,6 +28,18 @@ router.post("/cadastro", async (req, res) => {
     imagem:imagem,
     descritivo:descritivo,
     })
+  if (!nome){
+res.redirect("/cadastro" ,{mensagem: "tabela nome esta vazia"})
+  }else if  (!genero)
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela genero esta vazia"})
+  }else if  (!imagem) 
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela de imagem esta vazia"})
+  }else if  (!descritivo) 
+  {
+res.redirect("/cadastro" ,{mensagem: "tabela de descritivo esta vazia"})
+  };
   mensagem = `O Jogo ${nome} foi adicionado`
 res.redirect("/")})
  
