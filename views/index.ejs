@@ -29,14 +29,14 @@
         Catalago De Jogos - Moon Pass
     </h1>
 <section class="flex">
-        <% filme.forEach(item=> { %>
+        <% jogo.forEach(item=> { %>
             <div>
            <h2 class = "fontZ">
                 <%= item.nome %>
            </h2>
 
             <a href="https://projeto-catalago.herokuapp.com/detalhes/<%= item.id%>">
-                <img src=" <%= item.imagem%>" alt ="<%= filme.nome%>" class="imag">
+                <img src=" <%= item.imagem%>" alt ="<%= jogo.nome%>" class="imag">
             </a>
             </div>
         <% }) %>
