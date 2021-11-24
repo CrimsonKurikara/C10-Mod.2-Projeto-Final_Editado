@@ -19,7 +19,7 @@ router.get("/cadastro", (req, res) => {
 
 // cadastro do render
 
-router.post("/New", async (req, res) => {
+router.post("/cadastro", async (req, res) => {
 
   const {nome,genero,imagem,descritivo} = req.body;
   const jogo = await Jogos.create({
